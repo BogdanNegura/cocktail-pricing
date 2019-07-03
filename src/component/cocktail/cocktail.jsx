@@ -10,25 +10,12 @@ class Coocktail extends Component{
     }
 
     async getCocktail() {
-        try{
-            let cocktails = await  axios.get(`${BASE_URL}cocktail`)
-            console.log(cocktails)
-        
-        }
-        catch (err) {
-
-        }
+        let {data} = await  axios.get(`${BASE_URL}cocktail`)
+        this.setState({cocktail: data})
     }
-    
 
     componentDidMount(){
-        // axios
-        //     .get(`${BASE_URL}cocktail`)
-        //     .then(({data}) => {
-        //         this.setState({cocktail: data})
-        //     })
         this.getCocktail()
-            
     }
 
     render(){
